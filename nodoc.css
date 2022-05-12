@@ -1,0 +1,50 @@
+/*
+  NoDoc - Create brower-native documents for print
+*/
+
+body {
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
+  min-width: 22cm;
+}
+
+a:visited {
+  color: rgb(0, 0, 238);
+}
+
+page {
+  background: white;
+  box-shadow: 0.2em 0.2em 0.5em rgba(0,0,0,0.5);
+  box-sizing: border-box;
+  padding: 2.54cm;
+  display: block;
+  width: 21cm;
+  min-width: 21cm;
+  height: 29.7cm;
+}
+page.print {
+  box-shadow: none;
+}
+
+#print {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 1rem;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  font-size: 3em;
+}
+
+@media print {
+  body > * {
+    display: none;
+  }
+  .printwarning {
+    display: block!important;
+  }
+}

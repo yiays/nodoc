@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.yiays.com/nodoc/nodoc.css?v=0.1.5">
+
+    <style>
+      /* Custom styles are supported */
+      body {
+        font-family: 'Open Sans', sans;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://cdn.yiays.com/yiaycons/yiaycons.css">
+  </head>
+  <body>
+    <button id="print" onclick="print()" title="Export to PDF"><span class="icon-download3"></span></button>
+    <page>
+      <h1>Hello World</h1>
+      <p>
+        This is a basic HTML document, NoDoc has styled everything within the <code>&lt;page&gt;</code> element to fit within a standard sheet of A4 paper.
+      </p>
+      <p>
+        From here, you can do just about anything your browser supports. Whatever you do, it will be rendered at a high resolution and converted to PDF on the fly.
+      </p>
+      <p>
+        <b>You can export this document as a PDF now</b>, just click the <span class="icon-download3"></span> Download button in the bottom corner.
+      </p>
+      <p>
+        <a href="https://cdn.yiays.com/yiaycons/demo.html">Yiaycons</a> are bundled with NoDoc by default, this is a simple icon font with open    licensing.
+      </p>
+    </page>
+
+    <div class="printwarning" style="display:none;">
+      <h1>Notice</h1>
+      <p>
+        Export this page as a PDF using the <span class="icon-download3"></span> Download button before printing!
+      </p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="https://cdn.yiays.com/nodoc/nodoc.js?v=0.1"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // An AJAX JSON request can be put here
+        // getdata("data.json");
+      });
+
+      function format(data) {
+        // Update document with data from getdata()
+      }
+    </script>
+  </body>
+</html>
