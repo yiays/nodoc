@@ -1,0 +1,108 @@
+{
+  "start": "May 16, 2022",
+  "Week 3": {
+    "Tuesday": {
+      "3:45pm": ["Orientation", "Fire Drill"],
+      "5:00pm": ["Break"],
+      "5:30pm": ["English Writing", "Story Creation"],
+      "6:15pm": ["Drama", "Costume Design", "laptop"]
+    },
+    "Thursday": {
+      "3:45pm": ["World History", "The Black Death"],
+      "5:00pm": ["Break"],
+      "5:30pm": ["Art", "Self Portraits"],
+      "6:15pm": ["Independant Learning", "Personal goals / coding", "laptop"]
+    }
+  },
+  "Week 4": {
+    "Tuesday": {
+      "3:45pm": ["Drama", "Line memorisation"],
+      "5:00pm": ["Break"],
+      "5:30pm": ["English Reading", "Silent Reading", "books"],
+      "6:15pm": ["STEM", "Number Sequences"]
+    },
+    "Thursday": {
+      "3:45pm": ["World History", "History of Inventions", "laptop"],
+      "5:00pm": ["Break"],
+      "5:30pm": ["Art", "Art of Jackson Pollock"],
+      "6:15pm": ["Independant Learning", "Personal goals / coding", "laptop"]
+    }
+  },
+  "Week 5": {
+    "Tuesday": {
+      "3:45pm": ["English Speaking", "Preparing a Speech"],
+      "5:00pm": ["Break"],
+      "5:30pm": ["STEM", "Intro to Physics"],
+      "6:15pm": ["Drama", "Reading Scripts"]
+    },
+    "Thursday": {
+      "3:45pm": ["World History", "The Ancient Romans"],
+      "5:00pm": ["Break"],
+      "5:30pm": ["Crafts", "Making Puppets"],
+      "6:15pm": ["Independant Learning", "Personal goals / coding", "laptop"]
+    }
+  },
+  "Week 6": {
+    "Tuesday": {
+      "3:45pm": ["English Writing", "Cursive Training"],
+      "5:00pm": ["Break"],
+      "5:30pm": ["STEM", "Giant Magic Squares"],
+      "6:15pm": ["Drama", "Anatomy of the Stage"]
+    },
+    "Thursday": {
+      "3:45pm": ["World History", "Victorian Lifestyle"],
+      "5:00pm": ["Break"],
+      "5:30pm": ["Art", "Self Portraits"],
+      "6:15pm": ["Independant Learning", "Personal goals / coding", "laptop"]
+    }
+  },
+  "Week 7": {
+    "Tuesday": {
+      "3:45pm": ["Drama", "Commedia Continued"],
+      "5:00pm": ["Break"],
+      "5:30pm": ["English Reading", "Class Reading"],
+      "6:15pm": ["STEM", "The Market Game"]
+    },
+    "Thursday": {
+      "3:45pm": ["World History", "Geographic Folktales", "laptop"],
+      "5:00pm": ["Break"],
+      "5:30pm": ["Crafts", "Lino-Printing"],
+      "6:15pm": ["Independant Learning", "Personal goals / coding", "laptop"]
+    }
+  },
+  "Week 8": {
+    "Tuesday": {
+      "3:45pm": ["English Speaking", "Debating"],
+      "5:00pm": ["Break"],
+      "5:30pm": ["STEM", "Periodic Table"],
+      "6:15pm": ["Drama", "Production"]
+    },
+    "Thursday": {
+      "3:45pm": ["World History", "NZ Gold Rush"],
+      "5:00pm": ["Break"],
+      "5:30pm": ["Art", "Watercolour"],
+      "6:15pm": ["Independant Learning", "Personal goals / coding", "laptop"]
+    }
+  },
+  "Week 9": {
+    "Tuesday": {
+      "3:45pm": ["Drama", "Production"],
+      "5:00pm": ["Break"],
+      "5:30pm": ["Cinema Studies"]
+    },
+    "Thursday": {
+      "3:45pm": ["Independant Learning", "Personal goals / coding", "laptop"],
+      "5:00pm": ["Break"],
+      "5:30pm": ["Art/Crafts", "Free Choice"]
+    }
+  },
+  "Week 10": {
+    "soft": true,
+    "msg": "Preparation for Holiday Programme"
+  },
+  "Notes": {
+    "soft": true,
+    "dateoverride": "",
+    "msg": "Weeks 1 & 2 are interview weeks<br><br><span class=\"icon-laptop\"></span> = Bring your own device<br><span class=\"icon-books\"></span> = Bring your own book"
+  }
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.yiays.com/nodoc/nodoc.css?v=0.1">
+
+    <style>
+      html,body {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        font-size:1em;
+      }
+
+      h1 {
+        font-family: 'Graduate', serif;
+        text-align: center;
+        font-size: 2em;
+        margin-top: 0.2em;
+        margin-bottom: 0.3em;
+      }
+
+      h3 {
+        text-align: center;
+        font-size: 1em;
+        color: #888;
+        margin: 0;
+      }
+
+      page {
+        padding: 1cm;
+      }
+
+      #timetable {
+        display: flex;
+        width: 100%;
+        height: 26.5cm;
+        font-size: 10pt;
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+      #timetable th, #timetable td {
+        padding: 0 0.4em;
+      }
+      .week {
+        width: 6.25cm;
+        margin-bottom: 3px;
+        height: 0;
+        border: 1px solid white;
+        color: white;
+        background: #444;
+        border-collapse: collapse;
+      }
+      .week.soft td{
+        color: black;
+        background: #ddd;
+        padding: 1em 0!important;
+        text-align: center;
+      }
+      .week > thead > tr > th {
+        font-weight: bold;
+        text-align: center;
+        border-bottom: 1px solid white;
+      }
+      .week .day {
+        border-bottom: 1px solid white;
+      }
+      .week .day:nth-child(2) {
+        background: #ff4052;
+      }
+      .week .day:nth-child(3) {
+        background: #4a94ff;
+      }
+      .week .day > tr > th {
+        font-weight: normal;
+        text-decoration: underline;
+        text-align: left;
+      }
+      .week .day > tr > td:first-child {
+        vertical-align: baseline;
+      }
+      .week .day > tr > td:last-child {
+        color: black;
+        border: 1px solid white;
+        border-left: 1px solid white;
+      }
+      .week .day:nth-child(2) > tr > td:last-child {
+        background: #ffb9c0;
+      }
+      .week .day:nth-child(3) > tr > td:last-child {
+        background: #bed9ff;
+      }
+      .week .day:nth-child(2) > tr:nth-child(even) > td:last-child {
+        background: #ff97a1;
+      }
+      .week .day:nth-child(3) > tr:nth-child(even) > td:last-child {
+        background: #95c1ff;
+      }
+      .week .day .break {
+        background: #444;
+      }
+      .week .day .break > td:last-child {
+        background: #ddd!important;
+      }
+      .subject {
+        font-weight: 600;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://cdn.yiays.com/yiaycons/yiaycons.css">
+  </head>
+  <body>
+    <button id="print" onclick="print()"><span class="icon-download3"></span></button>
+    <page>
+      <h1>Term 2 Schedule - 2022</h1>
+      <div id="timetable"></div>
+    </page>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="https://cdn.yiays.com/nodoc/nodoc.js?v=0.1"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        getdata("timetable.json");
+      });
+
+      function format(data) {
+        let timetable = document.getElementById('timetable');
+        let weekdate = new Date(Date.parse(data.start));
+        Object.keys(data).forEach(week => {
+          if(week == 'start') return;
+
+          let content = ``;
+
+          let date = '- '+weekdate.toLocaleDateString('en-NZ');
+          if('dateoverride' in data[week])
+            date = data[week].dateoverride;
+          
+          if('soft' in data[week] && data[week].soft){
+            content += `
+            <table class="week soft">
+              <thead>
+                <th>${week} ${date}</th>
+              </thead>
+              <tbody>
+                <td>${data[week].msg}</td>
+              </tbody>
+            </table>
+            `;
+          }else{
+            content += `
+            <table class="week">
+              <thead>
+                <tr>
+                  <th colspan=2>${week} ${date}</th>
+                </tr>
+              </thead>`;
+            Object.keys(data[week]).forEach(day => {
+              if(day == 'soft') return;
+              content += `
+              <tbody class="day">
+                <tr>
+                  <th colspan="2">${day}</th>
+                </tr>`;
+              Object.keys(data[week][day]).forEach(time => {
+                let event = data[week][day][time];
+                let eventformatted;
+                if(event.length == 1) {
+                  var clsbreak = event[0]=='Break'?' class="break"':'';
+                  content += `
+                  <tr${clsbreak}>
+                    <td>${time}</td>
+                    <td><i>${event[0]}</i></td>
+                  </tr>`;
+                }
+                if(event.length > 1) {
+                  var icon = '';
+                  if(event.length > 2)
+                    icon = ` <span class="icon-${event[2]}"></span>`;
+                  eventformatted = `<span class="subject">${event[0]}</span> ${icon}<br><i>${event[1]}</i>`;
+                  content += `
+                  <tr>
+                    <td>${time}</td>
+                    <td>${eventformatted}</td>
+                  </tr>`;
+                }
+              });
+              content += `
+              </tbody>`;
+            });
+            content += `
+            </table>`;
+          }
+
+          timetable.innerHTML += content;
+
+          weekdate.setDate(weekdate.getDate() + 7);
+        });
+      }
+    </script>
+  </body>
+</html>
